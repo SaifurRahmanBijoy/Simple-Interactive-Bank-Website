@@ -6,6 +6,14 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   //convert it to number
   const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 
+  //   step-7:clear the input field
+  withdrawField.value = "";
+
+  if (isNaN(newWithdrawAmount)) {
+    alert("Please enter a valid input(Number)");
+    return;
+  }
+
   // step-3:get previous withdraw total
   const withdrawTotalElement = document.getElementById("withdraw-total");
   const previousWithdrawTotalString = withdrawTotalElement.innerText;
@@ -15,9 +23,6 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   const balanceTotalElement = document.getElementById("balance-total");
   const previousBalanceTotalString = balanceTotalElement.innerText;
   const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-
-  //   step-7:clear the input field
-  withdrawField.value = "";
 
   if (newWithdrawAmount > previousBalanceTotal) {
     alert(
