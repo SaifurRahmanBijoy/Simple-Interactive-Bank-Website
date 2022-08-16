@@ -21,6 +21,10 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   const previousBalanceTotalString=balanceTotalElement.innerText;
   const previousBalanceTotal=parseFloat(previousBalanceTotalString);
 
+  if(newWithdrawAmount>previousBalanceTotal){
+    alert('Insufficient amount! Please enter correct amount that can be withdrawn.')
+  }
+
   //step-6 & 6.5:calculate new balance and set the new balance
   const newBalanceTotal=previousBalanceTotal-newWithdrawAmount;
   balanceTotalElement.innerText=newBalanceTotal;
